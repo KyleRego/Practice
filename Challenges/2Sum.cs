@@ -66,4 +66,27 @@ public class TwoSum
 
         return [];
     }
+
+    public static int[] Again(int[] nums, int target)
+    {
+        Dictionary<int, int> map = [];
+
+        for (int i = 0; i < nums.Length; i += 1)
+        {
+            int val = nums[i];
+
+            int complement = target - val;
+
+            if (map.TryGetValue(complement, out int otherIndex))
+            {
+                return [i, otherIndex];
+            }
+            else
+            {
+                map[val] = i;
+            }
+        }
+
+        return [0, 0];
+    }
 }

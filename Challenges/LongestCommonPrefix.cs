@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace Challenges;
 
 // TODO: Study this problem again; there are multiple better
