@@ -2,22 +2,33 @@ namespace Challenges;
 
 public class RemoveDuplicatesFromSortedArray
 {
-    // Practice this again
+    // TODO: Practice this again
     public static int RemoveDuplicates(int[] nums)
     {
-        int insertIndex = 1;
+        if (nums.Length == 0) return 0;
 
-        for (int i = 1; i < nums.Length; i += 1)
+        int prevNum = nums[0];
+
+        int writeIndex = 1;
+        int readIndex = 1;
+
+        while (readIndex < nums.Length)
         {
-            int num = nums[i];
+            int num = nums[readIndex];
 
-            if (nums[i - 1] != num)
+            if (num == prevNum)
             {
-                nums[insertIndex] = num;
-                insertIndex += 1;
+                readIndex += 1;
+            }
+            else
+            {
+                nums[writeIndex] = num;
+                prevNum = num;
+                writeIndex += 1;
+                readIndex += 1;
             }
         }
 
-        return insertIndex;
+        return writeIndex;
     }
 }
