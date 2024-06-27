@@ -2,65 +2,32 @@ namespace Challenges;
 
 public class CombinationSum
 {
-    // This works if target is in candidates, at least
-    // one test is passing...
-    // TODO: Continue on this problem
     public static IList<IList<int>> Soln(int[] candidates, int target)
     {
-        Array.Sort(candidates);
+        IList<IList<int>> result = [];
 
-        Dictionary<int, IList<IList<int>>> map = SetupMap(candidates, target);
+        BackTrack(result, target, [], candidates, 0);
 
-        return map[target];
+        return result;
     }
 
-    private static Dictionary<int, IList<IList<int>>> SetupMap(int[] candidates, int target)
+    private static void BackTrack(IList<IList<int>> result, int remain, IList<int> comb, int[] candidates, int start)
     {
-        Dictionary<int, IList<IList<int>>> map = [];
-
-        for (int i = 0; i < candidates.Length; i += 1)
+        if (remain == 0)
         {
-            int candidate = candidates[i];
-
-            if (candidate > target)
-            {
-                break;
-            }
-
-            map[candidate] = [[candidate]];
-
-            for (int j = 0; j < i; j += 1)
-            {
-                int thisNum = candidates[j];
-                int howMany = 1;
-
-                while (howMany * thisNum < candidate)
-                {
-                    int desiredComplement = candidate - thisNum * howMany;
-
-                    if (map.TryGetValue(desiredComplement, out IList<IList<int>>? outd))
-                    {
-                        foreach (IList<int> asdf in outd)
-                        {
-                            IList<int> a = [];
-                            for (int f = 0; f < howMany; f += 1)
-                            {
-                                a.Add(thisNum);
-                            }
-
-                            foreach (int b in asdf)
-                            {
-                                a.Add(b);
-                            }
-                            map[candidate].Add(a);
-                        }
-                    }
-                    howMany += 1;
-                }
-                
-            }
+            result.Add(new List<int>(comb));
+            return;
         }
-
-        return map;
+        else if (remain < 0)
+        {
+            return;
+        }
+        for (int i = start; i < candidates.Length; i += 1)
+        {
+            int cand = candidates[i];
+            comb.Add(cand);
+            BackTrack(result, remain - cand, comb, candidates, i);
+            comb.RemoveAt(comb.Count - 1);
+        }
     }
 }

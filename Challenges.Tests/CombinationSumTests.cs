@@ -9,6 +9,18 @@ public class CombinationSumTests
         int target = 7;
 
         IList<IList<int>> result = CombinationSum.Soln(candidates, target);
+
+        Assert.Equal(2, result.Count);
+    }
+
+    [Fact]
+    public void Test1A()
+    {
+        int[] candidates = [2, 4];
+        int target = 4;
+
+        IList<IList<int>> result = CombinationSum.Soln(candidates, target);
+
         Assert.Equal(2, result.Count);
     }
 
@@ -19,6 +31,7 @@ public class CombinationSumTests
         int target = 8;
 
         IList<IList<int>> result = CombinationSum.Soln(candidates, target);
+
         Assert.Equal(3, result.Count);
     }
 
