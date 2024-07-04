@@ -74,4 +74,38 @@ public class SymmetricTree
             ComputeTracker(node.right, tracker, depth + 1, rightHorizontal);
         }
     }
+
+    public static bool RecursiveSoln(TreeNode root)
+    {
+        if (root == null)
+        {
+            return true;
+        }
+
+        return AreSymmetric(root.left, root.right);
+    }
+
+    private static bool AreSymmetric(TreeNode? left, TreeNode? right)
+    {
+        if (left == null)
+        {
+            if (right == null) return true;
+        
+            return false;
+        }
+
+        if (right == null)
+        {
+            if (left == null) return true;
+
+            return false;
+        }
+
+        if (left.val != right.val)
+        {
+            return false;
+        }
+
+        return AreSymmetric(left.left, right.right) && AreSymmetric(left.right, right.left);
+    }
 }

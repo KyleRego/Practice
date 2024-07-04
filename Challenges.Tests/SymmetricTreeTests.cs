@@ -35,5 +35,6 @@ public class SymmetricTreeTests
         };
 
         Assert.True(SymmetricTree.IsSymmetric(root));
+        Assert.True(SymmetricTree.RecursiveSoln(root));
     }
 }
