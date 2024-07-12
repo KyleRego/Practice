@@ -9,4 +9,12 @@ public class ContainerWithMostWaterTests
 
         Assert.Equal(49, Water.MaxArea(input));
     }
+
+    [Fact]
+    public void Test2()
+    {
+        int[] input = [1,8,6,2,5,4,8,3,7];
+
+        Assert.Equal(49, Water.Soln(input));
+    }
 }
