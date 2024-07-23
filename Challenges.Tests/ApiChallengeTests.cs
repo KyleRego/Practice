@@ -3,7 +3,7 @@ namespace Challenges.Tests;
 public class SolveTestTests
 {
     [Fact]
-    public async void Test1()
+    public void Test1()
     {
         // await SolveTest.Attempt();
     }
@@ -17,7 +17,7 @@ public class SolveTestTests
     }
 
     [Fact]
-    public async void Test3()
+    public void Test3()
     {
         string input = "task_577646548c206dc8e31ac3cde2bb23dd";
 
@@ -25,13 +25,13 @@ public class SolveTestTests
     }
 
     [Fact]
-    public async void Test4()
+    public void Test4()
     {
         Assert.Equal("task_2134", SolveTest.UnencryptSwappedEveryPair("task_1243"));
     }
 
     [Fact]
-    public async void Test5()
+    public void Test5()
     {
         string input = @"task_'.)([,,(+\)\('W-(W&([Z,,Y**,*&/Y";
 
@@ -39,7 +39,7 @@ public class SolveTestTests
     }
 
     [Fact]
-    public async void Test6()
+    public void Test6()
     {
         string input1 = "added -10 to ASCII value of each character";
 
@@ -51,7 +51,7 @@ public class SolveTestTests
     }
 
     [Fact]
-    public async void Test7()
+    public void Test7()
     {
         string input = "hex decoded, encrypted with XOR, hex encoded again. key: secret";
 
@@ -59,7 +59,7 @@ public class SolveTestTests
     }
 
     [Fact]
-    public async void Test8()
+    public void Test8()
     {
         string input = "task_68b1cb2eac9d1ed7510f4ad8b42a38f0";
 
@@ -72,7 +72,7 @@ public class SolveTestTests
     }
 
     [Fact]
-    public async void Test9()
+    public void Test9()
     {
         string input = "task_68b1cb2eac9d1ed7510f4ad8b42a38f0";
 
